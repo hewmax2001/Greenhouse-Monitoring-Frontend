@@ -37,26 +37,38 @@ function Records(props) {
     return (
         <div>
             {records.map(rec =>
-                <Card sx={{height: '100%', width: '50%'}} key={rec.id}>
+                <div>
+                <Card sx={{height: '100%', width: '100%'}} key={rec.id}>
                   <CardContent>
                     <Stack
-                      alignItems="flex-centre"
+                      alignItems="flex-center"
                       direction="row"
                       justifyContent="space-evenly"
                       spacing={3}
                     >
-                        <Typography >
-                            {rec.temp}
+                        <Typography variant="h5">
+                            ID: {rec.id}
                         </Typography>
                         <Typography >
-                             {rec.humidity}
+                            Temperature: {rec.temp}°C
                         </Typography>
                         <Typography >
-                             {rec.create_at}
+                             Humidity: {rec.humidity}%
+                        </Typography>
+                        <Typography >
+                             Soil Moisture: {rec.soil_moisture}%
+                        </Typography>
+                        <Typography >
+                             Light Intensity: {rec.light_intensity}
+                        </Typography>
+                        <Typography >
+                             Date: {rec.create_at}
                         </Typography>
                     </Stack>
                   </CardContent>
                 </Card>
+                    <br/>
+                </div>
             )}
         </div>
     );
