@@ -29,7 +29,7 @@ const Page = () => {
     let config = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: 'http://127.0.0.1:8000/api/sensordata_latest/',
+      url: 'http://mxhew.pythonanywhere.com/api/sensordata_latest/',
       headers: {}
     };
 
@@ -51,7 +51,7 @@ const Page = () => {
     let config = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: 'http://127.0.0.1:8000/api/sensordata_week/',
+      url: 'http://mxhew.pythonanywhere.com/api/sensordata_week/',
       headers: {}
     };
 
@@ -85,7 +85,7 @@ const Page = () => {
       </title>
     </Head>
     {
-      loading? <p> Leading </p>
+      loading? <p> Loading </p>
           :
     <Box
         component="main"

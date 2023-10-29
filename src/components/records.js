@@ -1,22 +1,31 @@
 import {useLocation} from "react-router-dom";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {Card, CardContent, Stack, Typography} from '@mui/material';
+import {Button, Card, CardContent, Stack, Typography} from '@mui/material';
 
 function Records(props) {
     const location = useLocation();
     const date = location.state.date
     const [loading, setLoading] = useState(true)
+    const [isToday, setIsToday] = useState(false)
     const [records, setRecords] = useState([])
+    const today = new Date();
 
     useEffect(() => {
+        let dateObj = new Date(date)
+        let dateStr = dateObj.toISOString().slice(0, 10)
+        let todayStr = today.toISOString().slice(0, 10)
+
+        if (dateStr == todayStr) {
+            setIsToday(true)
+        }
         const FormData2 = require('form-data');
         let data = new FormData();
         data.append('date', date);
             let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'http://127.0.0.1:8000/api/sensordata_date/',
+                url: 'http://mxhew.pythonanywhere.com/api/sensordata_date/',
                 headers: {
 
                 },
@@ -36,6 +45,19 @@ function Records(props) {
 
     return (
         <div>
+            <Stack
+              alignItems="flex-center"
+              direction="row"
+              justifyContent="space-evenly"
+              spacing={3}
+            >
+                <Button variant="contained">Previous</Button>
+                {
+                  isToday? <Button variant="contained" disabled>Next</Button>
+                      :
+                <Button variant="contained" >Next</Button>
+                }
+            </Stack>
             {records.map(rec =>
                 <div>
                 <Card sx={{height: '100%', width: '100%'}} key={rec.id}>
