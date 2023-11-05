@@ -10,7 +10,7 @@ function Menu(props) {
           <Navbar.Brand >Dashboard</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">Analytics</Nav.Link>
-            <Nav.Link ><Link to={"/records"} state={{date: now}}>Records</Link></Nav.Link>
+            <Nav.Link ><Link to={"/records"} state={{date: now.slice(0, 10)}}>Records</Link></Nav.Link>
           </Nav>
         </Container>
       </Navbar>

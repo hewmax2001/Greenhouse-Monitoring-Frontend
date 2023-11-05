@@ -13,7 +13,7 @@ import {Card, CardContent} from "@mui/material";
 const now = new Date();
 
 
-const Page = () => {
+const Dashboard = () => {
   const [temperature, setTemperature] = useState(0)
   const [humidity, setHumidity] = useState(0)
   const [soil, setSoil] = useState(0)
@@ -213,10 +213,10 @@ const Page = () => {
   </>);
 };
 
-Page.getLayout = (page) => (
+Dashboard.getLayout = (page) => (
   <DashboardLayout>
     {page}
   </DashboardLayout>
 );
 
-export default Page;
+export default Dashboard;

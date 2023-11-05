@@ -1,4 +1,4 @@
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Button, Card, CardContent, Stack, Typography} from '@mui/material';
@@ -10,11 +10,22 @@ function Records(props) {
     const [isToday, setIsToday] = useState(false)
     const [records, setRecords] = useState([])
     const today = new Date();
+    const dateObj = new Date(date)
+    const datePrev = new Date()
+    const dateNext = new Date()
+
+    datePrev.setDate(dateObj.getDate() - 1)
+    dateNext.setDate(dateObj.getDate() + 1)
+    const datePrevStr = datePrev.toISOString().slice(0, 10)
+    const dateNextStr = dateNext.toISOString().slice(0, 10)
 
     useEffect(() => {
-        let dateObj = new Date(date)
+
         let dateStr = dateObj.toISOString().slice(0, 10)
         let todayStr = today.toISOString().slice(0, 10)
+        let test = new Date()
+        test.setDate(dateObj.getDate() - 30)
+        console.log(test.toISOString().slice(0, 10))
 
         if (dateStr == todayStr) {
             setIsToday(true)
@@ -43,6 +54,10 @@ function Records(props) {
                 });
     }, [date]);
 
+    function changeDate(chgDate) {
+        console.log(chgDate.toISOString().slice(0, 10))
+    }
+
     return (
         <div>
             <Stack
@@ -51,47 +66,61 @@ function Records(props) {
               justifyContent="space-evenly"
               spacing={3}
             >
-                <Button variant="contained">Previous</Button>
+                <Link to={"/records"} state={{date: datePrev.toISOString().slice(0, 10)}}>
+                    <Button variant="contained" onClick={(key) => changeDate(datePrev)}>{datePrevStr}</Button>
+                </Link>
+                <Typography variant="h4">
+                    {date}
+                </Typography>
                 {
-                  isToday? <Button variant="contained" disabled>Next</Button>
+                  isToday? <Button variant="contained" disabled>{dateNextStr}</Button>
                       :
-                <Button variant="contained" >Next</Button>
+                <Link to={"/records"} state={{date: dateNext.toISOString().slice(0, 10)}}>
+                    <Button variant="contained" onClick={(key) => changeDate(dateNext)}>{dateNextStr}</Button>
+                </Link>
                 }
             </Stack>
-            {records.map(rec =>
-                <div>
-                <Card sx={{height: '100%', width: '100%'}} key={rec.id}>
-                  <CardContent>
-                    <Stack
-                      alignItems="flex-center"
-                      direction="row"
-                      justifyContent="space-evenly"
-                      spacing={3}
+             <Stack
+                      direction="column"
+                      justifyContent="flex-start"
+                        alignItems="flex-center"
+                      spacing={1}
                     >
-                        <Typography variant="h5">
-                            ID: {rec.id}
-                        </Typography>
-                        <Typography >
-                            Temperature: {rec.temp}°C
-                        </Typography>
-                        <Typography >
-                             Humidity: {rec.humidity}%
-                        </Typography>
-                        <Typography >
-                             Soil Moisture: {rec.soil_moisture}%
-                        </Typography>
-                        <Typography >
-                             Light Intensity: {rec.light_intensity}
-                        </Typography>
-                        <Typography >
-                             Date: {rec.create_at}
-                        </Typography>
-                    </Stack>
-                  </CardContent>
-                </Card>
-                    <br/>
-                </div>
-            )}
+                {records.map(rec =>
+                    <div>
+                    <Card sx={{height: '100%', width: '80%'}} variant="outlined" key={rec.id}>
+                      <CardContent>
+                        <Stack
+                          direction="row"
+                          justifyContent="space-evenly"
+                            alignItems="flex-center"
+                          spacing={3}
+                        >
+                            <Typography variant="h5">
+                                ID: {rec.id}
+                            </Typography>
+                            <Typography >
+                                Temperature: {rec.temp}°C
+                            </Typography>
+                            <Typography >
+                                 Humidity: {rec.humidity}%
+                            </Typography>
+                            <Typography >
+                                 Soil Moisture: {rec.soil_moisture}%
+                            </Typography>
+                            <Typography >
+                                 Light Intensity: {rec.light_intensity}
+                            </Typography>
+                            <Typography >
+                                 Date: {rec.create_at}
+                            </Typography>
+                        </Stack>
+                      </CardContent>
+                    </Card>
+
+                    </div>
+                )}
+             </Stack>
         </div>
     );
 }
