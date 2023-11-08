@@ -10,7 +10,6 @@ function Records(props) {
     const location = useLocation();
     const navigate = useNavigate();
     const date = location.state.date
-    const [loading, setLoading] = useState(true)
     const [isToday, setIsToday] = useState(false)
     const [records, setRecords] = useState([])
     const [prevDateStr, setPrev] = useState("")
@@ -54,7 +53,6 @@ function Records(props) {
             axios(config)
                 .then((response) => {
                     setRecords(response.data)
-                    setLoading(false)
                 })
                 .catch((error) => {
                     console.log(error);
