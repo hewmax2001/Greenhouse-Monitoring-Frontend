@@ -1,4 +1,4 @@
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Box, Button, Card, CardContent, Stack, Typography} from '@mui/material';
@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function Records(props) {
     const location = useLocation();
+    const navigate = useNavigate();
     const date = location.state.date
     const [loading, setLoading] = useState(true)
     const [isToday, setIsToday] = useState(false)
@@ -75,7 +76,7 @@ function Records(props) {
     }
 
     function changeDate(chgDate) {
-        console.log(chgDate.toISOString().slice(0, 10))
+        navigate('/records', {state: {date : chgDate.toISOString().slice(0, 10)}})
     }
 
     return (
@@ -97,8 +98,9 @@ function Records(props) {
                     <Button variant="contained" onClick={(key) => changeDate(datePrev)}>{prevDateStr}</Button>
                 </Link>
                 <DatePicker
-                  selected={dateObj}
-                  onChange={(date) => changeDate(date)} //only when value has changed
+                    selected={dateObj}
+                    maxDate={today}
+                    onChange={(date) => changeDate(date)} //only when value has changed
                 />
                 {
                   isToday? <Button variant="contained" disabled>{nextDateStr}</Button>
