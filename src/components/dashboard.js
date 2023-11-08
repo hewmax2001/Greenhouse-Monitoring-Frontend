@@ -26,6 +26,7 @@ const Dashboard = () => {
 
 
   useEffect(() => {
+    console.log("Thus much works")
     let config = {
       method: 'get',
       maxBodyLength: Infinity,
