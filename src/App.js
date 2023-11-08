@@ -13,7 +13,7 @@ function App() {
     <div className="App">
         <Menu/>
       <Routes>
-        <Route path={"/capstone_react_frontend"} element={<Dashboard/>}/>
+        <Route path={"/"} element={<Dashboard/>}/>
         <Route path={"/records"} element={<Records/>}/>
       </Routes>
     </div>

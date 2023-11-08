@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { Box, Container, Unstable_Grid2 as Grid } from '@mui/material';
-import { Layout as DashboardLayout } from '../layouts/dashboard/layout';
 import { OverviewTemperature } from '../sections/overview/overview-temperature';
 import { OverviewSoilMoisture } from '../sections/overview/overview-soil-moisture';
 import { OverviewHumidity } from '../sections/overview/overview-humidity';
@@ -213,11 +212,5 @@ const Dashboard = () => {
     }
   </>);
 };
-
-Dashboard.getLayout = (page) => (
-  <DashboardLayout>
-    {page}
-  </DashboardLayout>
-);
 
 export default Dashboard;
