@@ -4,7 +4,6 @@ import {
   Box,
   Card,
   CardContent,
-  LinearProgress,
   Stack,
   SvgIcon,
   Typography
@@ -13,6 +12,7 @@ import GaugeChart from 'react-gauge-chart'
 import {BeakerIcon} from "@heroicons/react/24/outline";
 
 export const OverviewSoilMoisture = (props) => {
+  {/* Card height and Soil Moisture Value */}
   const { value, sx } = props;
 
   return (
@@ -24,6 +24,8 @@ export const OverviewSoilMoisture = (props) => {
           justifyContent="space-between"
           spacing={3}
         >
+
+          {/* Label */}
           <Stack spacing={1}>
             <Typography
               color="text.secondary"
@@ -32,10 +34,14 @@ export const OverviewSoilMoisture = (props) => {
             >
               Soil Moisture
             </Typography>
+
+            {/* Value */}
             <Typography variant="h4">
               {value}%
             </Typography>
+
           </Stack>
+
           <Avatar
             sx={{
               backgroundColor: 'warning.main',
@@ -43,11 +49,15 @@ export const OverviewSoilMoisture = (props) => {
               width: 56
             }}
           >
+            {/* Icon */}
             <SvgIcon>
               <BeakerIcon />
             </SvgIcon>
           </Avatar>
+
         </Stack>
+
+        {/* Percentage Gauge */}
         <Box sx={{ mt: 3 }}>
           <GaugeChart id="gauge-chart1"
           animate={true}
@@ -57,6 +67,7 @@ export const OverviewSoilMoisture = (props) => {
           textColor="#00000000"
           needleColor="#345243" />
         </Box>
+
       </CardContent>
     </Card>
   );

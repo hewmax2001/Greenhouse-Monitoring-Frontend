@@ -3,6 +3,7 @@ import { Avatar, Card, CardContent, Stack, SvgIcon, Typography } from '@mui/mate
 import {SunIcon} from "@heroicons/react/24/outline";
 
 export const OverviewLight = (props) => {
+  {/* Card height and Light Value */}
   const { value, sx } = props;
 
   return (
@@ -15,16 +16,22 @@ export const OverviewLight = (props) => {
           spacing={3}
         >
           <Stack spacing={1}>
+
+            {/* Label */}
             <Typography
               color="text.secondary"
               variant="overline"
             >
               Light Intensity
             </Typography>
+
+            {/* Value */}
             <Typography variant="h4">
               {value}
             </Typography>
+
           </Stack>
+
           <Avatar
             sx={{
               backgroundColor: 'primary.main',
@@ -32,10 +39,12 @@ export const OverviewLight = (props) => {
               width: 56
             }}
           >
+            {/* Icon */}
             <SvgIcon>
               <SunIcon/>
             </SvgIcon>
           </Avatar>
+
         </Stack>
       </CardContent>
     </Card>

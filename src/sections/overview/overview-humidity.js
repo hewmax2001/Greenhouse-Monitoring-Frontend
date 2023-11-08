@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
-import ArrowDownIcon from '@heroicons/react/24/solid/ArrowDownIcon';
-import ArrowUpIcon from '@heroicons/react/24/solid/ArrowUpIcon';
-import UsersIcon from '@heroicons/react/24/solid/UsersIcon';
 import {Avatar, Box, Card, CardContent, Stack, SvgIcon, Typography} from '@mui/material';
 import GaugeChart from 'react-gauge-chart'
 import {CloudIcon} from "@heroicons/react/24/outline";
 
 export const OverviewHumidity = (props) => {
-  const { difference, positive = false, sx, value } = props;
+  {/* Card height and Humidity Value */}
+  const { sx, value } = props;
 
   return (
     <Card sx={sx}>
@@ -19,16 +17,22 @@ export const OverviewHumidity = (props) => {
           spacing={3}
         >
           <Stack spacing={1}>
+
+            {/* Label */}
             <Typography
               color="text.secondary"
               variant="overline"
             >
               Humidity
             </Typography>
+
+            {/* Value as Percentage */}
             <Typography variant="h4">
               {value}%
             </Typography>
+
           </Stack>
+
           <Avatar
             sx={{
               backgroundColor: 'success.main',
@@ -36,20 +40,15 @@ export const OverviewHumidity = (props) => {
               width: 56
             }}
           >
+            {/* Icon */}
             <SvgIcon>
               <CloudIcon />
             </SvgIcon>
           </Avatar>
+
         </Stack>
-        {difference && (
-          <Stack
-            alignItems="center"
-            direction="row"
-            spacing={2}
-            sx={{ mt: 2 }}
-          >
-          </Stack>
-        )}
+
+        {/* Percentage Gauge */}
         <Box sx={{ mt: 3 }}>
           <GaugeChart id="gauge-chart1"
           animate={true}
@@ -59,15 +58,14 @@ export const OverviewHumidity = (props) => {
           textColor="#00000000"
           needleColor="#345243" />
         </Box>
+
       </CardContent>
     </Card>
   );
 };
 
 OverviewHumidity.propTypes = {
-  difference: PropTypes.number,
-  positive: PropTypes.bool,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number,
   sx: PropTypes.object
 };
 
