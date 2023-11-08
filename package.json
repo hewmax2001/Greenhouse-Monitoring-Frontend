@@ -72,7 +72,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.22.15"
+    "@babel/preset-react": "^7.22.15",
+    "react-datepicker": "^4.21.0"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "babel.config.js",

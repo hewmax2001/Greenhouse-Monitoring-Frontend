@@ -1,7 +1,10 @@
 import {Link, useLocation} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {Button, Card, CardContent, Stack, Typography} from '@mui/material';
+import {Box, Button, Card, CardContent, Stack, Typography} from '@mui/material';
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 function Records(props) {
     const location = useLocation();
@@ -9,6 +12,8 @@ function Records(props) {
     const [loading, setLoading] = useState(true)
     const [isToday, setIsToday] = useState(false)
     const [records, setRecords] = useState([])
+    const [prevDateStr, setPrev] = useState("")
+    const [nextDateStr, setNext] = useState("")
     const today = new Date();
     const dateObj = new Date(date)
     const datePrev = new Date()
@@ -16,19 +21,21 @@ function Records(props) {
 
     datePrev.setDate(dateObj.getDate() - 1)
     dateNext.setDate(dateObj.getDate() + 1)
-    const datePrevStr = datePrev.toISOString().slice(0, 10)
-    const dateNextStr = dateNext.toISOString().slice(0, 10)
 
     useEffect(() => {
 
         let dateStr = dateObj.toISOString().slice(0, 10)
         let todayStr = today.toISOString().slice(0, 10)
-        let test = new Date()
-        test.setDate(dateObj.getDate() - 30)
-        console.log(test.toISOString().slice(0, 10))
+
+        setPrev(getPreviousDay(dateObj).toISOString().slice(0, 10))
+        setNext(getNextDay(dateObj).toISOString().slice(0, 10))
+
 
         if (dateStr == todayStr) {
             setIsToday(true)
+        }
+        else {
+            setIsToday(false)
         }
         const FormData2 = require('form-data');
         let data = new FormData();
@@ -45,7 +52,6 @@ function Records(props) {
 
             axios(config)
                 .then((response) => {
-                    console.log(JSON.stringify(response.data));
                     setRecords(response.data)
                     setLoading(false)
                 })
@@ -54,46 +60,67 @@ function Records(props) {
                 });
     }, [date]);
 
+    function getPreviousDay(date = new Date()) {
+        const previous = new Date(date.getTime());
+        previous.setDate(date.getDate() - 1);
+
+        return previous;
+    }
+
+    function getNextDay(date = new Date()) {
+        const next = new Date(date.getTime());
+        next.setDate(date.getDate() + 1);
+
+        return next;
+    }
+
     function changeDate(chgDate) {
         console.log(chgDate.toISOString().slice(0, 10))
     }
 
     return (
-        <div>
+        <Box sx={{
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '10px',
+        }}>
+
             <Stack
-              alignItems="flex-center"
+              alignItems="center"
               direction="row"
               justifyContent="space-evenly"
               spacing={3}
             >
-                <Link to={"/records"} state={{date: datePrev.toISOString().slice(0, 10)}}>
-                    <Button variant="contained" onClick={(key) => changeDate(datePrev)}>{datePrevStr}</Button>
+                <Link to={"/records"} state={{date: prevDateStr}}>
+                    <Button variant="contained" onClick={(key) => changeDate(datePrev)}>{prevDateStr}</Button>
                 </Link>
-                <Typography variant="h4">
-                    {date}
-                </Typography>
+                <DatePicker
+                  selected={dateObj}
+                  onChange={(date) => changeDate(date)} //only when value has changed
+                />
                 {
-                  isToday? <Button variant="contained" disabled>{dateNextStr}</Button>
+                  isToday? <Button variant="contained" disabled>{nextDateStr}</Button>
                       :
-                <Link to={"/records"} state={{date: dateNext.toISOString().slice(0, 10)}}>
-                    <Button variant="contained" onClick={(key) => changeDate(dateNext)}>{dateNextStr}</Button>
+                <Link to={"/records"} state={{date: nextDateStr}}>
+                    <Button variant="contained" onClick={(key) => changeDate(dateNext)}>{nextDateStr}</Button>
                 </Link>
                 }
             </Stack>
              <Stack
                       direction="column"
                       justifyContent="flex-start"
-                        alignItems="flex-center"
+                        alignItems="center"
                       spacing={1}
                     >
                 {records.map(rec =>
-                    <div>
-                    <Card sx={{height: '100%', width: '80%'}} variant="outlined" key={rec.id}>
+                    <Card sx={{height: '100%', width: '100%'}} variant="outlined" key={rec.id}>
                       <CardContent>
                         <Stack
                           direction="row"
                           justifyContent="space-evenly"
-                            alignItems="flex-center"
+                            alignItems="center"
                           spacing={3}
                         >
                             <Typography variant="h5">
@@ -112,16 +139,16 @@ function Records(props) {
                                  Light Intensity: {rec.light_intensity}
                             </Typography>
                             <Typography >
-                                 Date: {rec.create_at}
+                                 Date/Time: {rec.formatted_date}
                             </Typography>
                         </Stack>
                       </CardContent>
                     </Card>
 
-                    </div>
                 )}
              </Stack>
-        </div>
+
+        </Box>
     );
 }
 

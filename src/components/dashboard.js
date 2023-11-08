@@ -60,10 +60,10 @@ const Dashboard = () => {
           if (response.data) {
             for (let i = 0; i < response.data.length; i++) {
               let item = response.data[i]
-              weekTemp[i] = { name: item.create_at, uv: item.temp, pv: 2400, amt: 2400 }
-              weekHum[i] = { name: item.create_at, uv: item.humidity }
-              weekSoil[i] = { name: item.create_at, uv: item.soil_moisture }
-              weekLight[i] = { name: item.create_at, uv: item.light_intensity }
+              weekTemp[i] = { name: item.date_only, uv: item.temp, pv: 2400, amt: 2400 }
+              weekHum[i] = { name: item.date_only, uv: item.humidity }
+              weekSoil[i] = { name: item.date_only, uv: item.soil_moisture }
+              weekLight[i] = { name: item.date_only, uv: item.light_intensity }
             }
             weekTemp.reverse()
             weekHum.reverse()
