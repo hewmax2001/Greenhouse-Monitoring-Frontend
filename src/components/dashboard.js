@@ -6,7 +6,7 @@ import { OverviewHumidity } from '../sections/overview/overview-humidity';
 import { OverviewLight } from '../sections/overview/overview-light';
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import { RenderLineChart } from "./LineChart2"
+import { RenderLineChart } from "./LineChart"
 import {Card, CardContent} from "@mui/material";
 
 const now = new Date();
