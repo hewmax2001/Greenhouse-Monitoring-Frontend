@@ -29,7 +29,7 @@ const Dashboard = () => {
     let config = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: 'http://mxhew.pythonanywhere.com/api/sensordata_latest/',
+      url: 'https://mxhew.pythonanywhere.com/api/sensordata_latest/',
       headers: {}
     };
 
@@ -51,7 +51,7 @@ const Dashboard = () => {
     let config = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: 'http://mxhew.pythonanywhere.com/api/sensordata_week/',
+      url: 'https://mxhew.pythonanywhere.com/api/sensordata_week/',
       headers: {}
     };
 

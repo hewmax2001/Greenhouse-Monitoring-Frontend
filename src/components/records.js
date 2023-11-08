@@ -43,7 +43,7 @@ function Records(props) {
             let config = {
                 method: 'post',
                 maxBodyLength: Infinity,
-                url: 'http://mxhew.pythonanywhere.com/api/sensordata_date/',
+                url: 'https://mxhew.pythonanywhere.com/api/sensordata_date/',
                 headers: {
 
                 },
