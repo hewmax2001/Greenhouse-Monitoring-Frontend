@@ -191,7 +191,7 @@ const Dashboard = () => {
 
               <Grid
                   xs={6}
-                  md={8}
+                  md={6}
                   lg={6}
               >
                 <Card sx={{height: '100%'}}>
@@ -208,7 +208,7 @@ const Dashboard = () => {
 
               <Grid
                   xs={6}
-                  md={8}
+                  md={6}
                   lg={6}
               >
                <Card sx={{height: '100%'}}>
@@ -225,7 +225,7 @@ const Dashboard = () => {
 
               <Grid
                   xs={6}
-                  md={8}
+                  md={6}
                   lg={6}
               >
                 <Card sx={{height: '100%'}}>
@@ -241,8 +241,8 @@ const Dashboard = () => {
               {/* Light Intensity */}
 
               <Grid
-                  xs={12}
-                  md={8}
+                  xs={16}
+                  md={6}
                   lg={6}
               >
                 <Card sx={{height: '100%'}}>
