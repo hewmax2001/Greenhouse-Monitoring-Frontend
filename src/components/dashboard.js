@@ -122,7 +122,7 @@ const Dashboard = () => {
               {/* Overview Temperature */}
 
               <Grid
-                  xs={12}
+                  xs={6}
                   sm={6}
                   lg={3}
               >
@@ -137,7 +137,7 @@ const Dashboard = () => {
               {/* Overview Humidity */}
 
               <Grid
-                  xs={12}
+                  xs={6}
                   sm={6}
                   lg={3}
               >
@@ -152,7 +152,7 @@ const Dashboard = () => {
               {/* Overview Soil Moisture */}
 
               <Grid
-                  xs={12}
+                  xs={6}
                   sm={6}
                   lg={3}
               >
@@ -165,7 +165,7 @@ const Dashboard = () => {
               {/* Overview Light Intensity */}
 
               <Grid
-                  xs={12}
+                  xs={6}
                   sm={6}
                   lg={3}
               >
@@ -190,7 +190,7 @@ const Dashboard = () => {
               {/* Temperature */}
 
               <Grid
-                  xs={12}
+                  xs={6}
                   md={8}
                   lg={6}
               >
@@ -207,7 +207,7 @@ const Dashboard = () => {
               {/* Humidity */}
 
               <Grid
-                  xs={12}
+                  xs={6}
                   md={8}
                   lg={6}
               >
@@ -224,7 +224,7 @@ const Dashboard = () => {
               {/* Soil Moisture */}
 
               <Grid
-                  xs={12}
+                  xs={6}
                   md={8}
                   lg={6}
               >
