@@ -6,7 +6,7 @@ export const RenderLineChart = (props) => {
     const { data } = props;
 
     return (
-        <ResponsiveContainer height={300}>
+        <ResponsiveContainer aspect={2}>
           <LineChart data={data}>
             <Line type="monotone" dataKey="uv" stroke="#8884d8" />
               {/* XAxis = Dates */}
