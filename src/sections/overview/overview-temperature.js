@@ -17,7 +17,7 @@ export const OverviewTemperature = (props) => {
           alignItems="flex-start"
           direction="row"
           justifyContent="space-between"
-          spacing={3}
+          spacing={0}
         >
           <Stack spacing={1}>
 
@@ -45,7 +45,8 @@ export const OverviewTemperature = (props) => {
             sx={{
               backgroundColor: 'error.main',
               height: 56,
-              width: 56
+              width: 56,
+              ml: 0,
             }}
           >
             {/* Icon */}

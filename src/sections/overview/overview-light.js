@@ -36,7 +36,8 @@ export const OverviewLight = (props) => {
             sx={{
               backgroundColor: 'primary.main',
               height: 56,
-              width: 56
+              width: 56,
+              ml: 0,
             }}
           >
             {/* Icon */}
