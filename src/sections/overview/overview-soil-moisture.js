@@ -1,13 +1,5 @@
 import PropTypes from 'prop-types';
-import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  Stack,
-  SvgIcon,
-  Typography
-} from '@mui/material';
+import {Avatar, Box, Card, CardContent, Stack, SvgIcon, Typography} from '@mui/material';
 import GaugeChart from 'react-gauge-chart'
 import {BeakerIcon} from "@heroicons/react/24/outline";
 

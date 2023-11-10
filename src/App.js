@@ -1,17 +1,15 @@
-
 import './App.css';
-import {Routes, Route, Navigate} from "react-router-dom";
-
+import {Routes, Route} from "react-router-dom";
 import React from "react";
 import Dashboard from "./components/dashboard";
-import Menu from "./components/Menu";
+import NavigationBar from "./components/NavigationBar";
 import Records from "./components/records";
 
 // App functional component
 function App() {
   return (
     <div className="App">
-        <Menu/>
+        <NavigationBar/>
       <Routes>
           {/* URL paths of both analytics dashboard and records */}
           <Route path={"/"} element={<Dashboard/>}/>

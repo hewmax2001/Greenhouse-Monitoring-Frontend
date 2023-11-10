@@ -149,7 +149,6 @@ function Records(props) {
             >
                 {/* For each sensor data record */}
                 {records.map(rec =>
-
                     <Card sx={{height: '100%', width: '100%'}} variant="outlined" key={rec.id}>
                         <CardContent>
                             <Stack
@@ -185,7 +184,6 @@ function Records(props) {
                             </Stack>
                         </CardContent>
                     </Card>
-
                 )}
             </Stack>
         </Box>

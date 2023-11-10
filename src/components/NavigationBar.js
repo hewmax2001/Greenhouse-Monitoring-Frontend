@@ -4,8 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import {Link} from "react-router-dom";
 const now = new Date().toISOString();
 
-// Navigation Menu component
-function Menu(props) {
+// Navigation NavigationBar component
+function NavigationBar(props) {
     return (
     <Navbar bg="dark" data-bs-theme="dark">
         <Container>
@@ -22,4 +22,4 @@ function Menu(props) {
   );
 }
 
-export default Menu;
+export default NavigationBar;
