@@ -10,7 +10,7 @@ export const RenderLineChart = (props) => {
           <LineChart data={data}>
             <Line type="monotone" dataKey="uv" stroke="#8884d8" />
               {/* XAxis = Dates */}
-              <XAxis dataKey="name" fontSize={10}/>
+              <XAxis dataKey="name" fontSize={10} minTickGap={-5}/>
 
               {/* YAxis = Plotted Data */}
               <YAxis fontSize={12}/>

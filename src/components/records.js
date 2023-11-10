@@ -114,7 +114,7 @@ function Records(props) {
                 alignItems="center"
                 direction="row"
                 justifyContent="space-evenly"
-                spacing={3}
+                spacing={1}
             >
                 {/* Previous Date Button */}
                 <Link to={"/records"} state={{date: prevDateStr}}>
@@ -126,6 +126,7 @@ function Records(props) {
                     selected={dateObj} // Selected date is the date in state memory
                     maxDate={today} // Cannot select a date in the future
                     onChange={(date) => changeDate(date)} // Changes date upon selecting a value
+                    withPortal
                 />
 
                 {/* Next Date Button */}
