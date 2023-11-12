@@ -118,7 +118,7 @@ function Records(props) {
             >
                 {/* Previous Date Button */}
                 <Link to={"/records"} state={{date: prevDateStr}}>
-                    <Button variant="contained" onClick={(key) => changeDate(datePrev)}>{prevDateStr}</Button>
+                    <Button variant="contained" onClick={(key) => changeDate(datePrev)}>Prev</Button>
                 </Link>
 
                 {/* Date Picker */}
@@ -136,7 +136,7 @@ function Records(props) {
                         :
                         // Else
                         <Link to={"/records"} state={{date: nextDateStr}}>
-                            <Button variant="contained" onClick={(key) => changeDate(dateNext)}>Prev</Button>
+                            <Button variant="contained" onClick={(key) => changeDate(dateNext)}>Next</Button>
                         </Link>
                 }
             </Stack>
