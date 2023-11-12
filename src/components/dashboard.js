@@ -29,6 +29,7 @@ const Dashboard = () => {
 
   {/* Requesting both latest sensor data and average values for last 7 days */}
   useEffect(() => {
+    document.title = 'Dashboard';
 
     {/* Request config: Latest sensor data */}
     let config = {

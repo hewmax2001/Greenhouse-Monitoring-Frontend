@@ -42,7 +42,7 @@ function Records(props) {
 
     {/* Requesting data of all sensor data record corresponding with state's date */}
     useEffect(() => {
-
+        document.title = 'Records';
         {/* Setting date strings */}
         setPrev(getPreviousDay(dateObj).toISOString().slice(0, 10))
         setNext(getNextDay(dateObj).toISOString().slice(0, 10))
