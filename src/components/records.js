@@ -132,11 +132,11 @@ function Records(props) {
                 {/* Next Date Button */}
                 {
                     // If today, disable Next Date Button
-                    isToday ? <Button variant="contained" disabled>{nextDateStr}</Button>
+                    isToday ? <Button variant="contained" disabled>Next</Button>
                         :
                         // Else
                         <Link to={"/records"} state={{date: nextDateStr}}>
-                            <Button variant="contained" onClick={(key) => changeDate(dateNext)}>{nextDateStr}</Button>
+                            <Button variant="contained" onClick={(key) => changeDate(dateNext)}>Prev</Button>
                         </Link>
                 }
             </Stack>
