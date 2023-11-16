@@ -161,38 +161,38 @@ function Records(props) {
                             >
                                 {/* Temperature */}
                                 <div>
-                                    <Typography sx={{ fontWeight: 'bold', typography: { sm: 'body4' } }}>
+                                    <Typography sx={{ fontWeight: 'bold'}} style={{fontSize: '12px'}}>
                                         Temperature:
                                     </Typography>
-                                    <p>{rec.temp}°C</p>
+                                    <p style={{fontSize: '12px'}}>{rec.temp}°C</p>
                                 </div>
                                 {/* Humidity */}
                                 <div>
-                                    <Typography sx={{ fontWeight: 'bold', typography: { sm: 'body4' } }}>
+                                    <Typography sx={{ fontWeight: 'bold'}} style={{fontSize: '12px'}}>
                                         Humidity:
                                     </Typography>
-                                    <p>{rec.humidity}%</p>
+                                    <p style={{fontSize: '12px'}}>{rec.humidity}%</p>
                                 </div>
                                 {/* Soil Moisture */}
                                 <div>
-                                    <Typography sx={{ fontWeight: 'bold', typography: { sm: 'body4' } }}>
+                                    <Typography sx={{ fontWeight: 'bold' }} style={{fontSize: '12px'}}>
                                         Soil Moisture:
                                     </Typography>
-                                    <p>{rec.soil_moisture}%</p>
+                                    <p style={{fontSize: '12px'}}>{rec.soil_moisture}%</p>
                                 </div>
                                 {/* Light Intensity */}
                                 <div>
-                                    <Typography sx={{ fontWeight: 'bold', typography: { sm: 'body4' } }}>
+                                    <Typography sx={{ fontWeight: 'bold'}} style={{fontSize: '12px'}}>
                                         Light Intensity:
                                     </Typography>
-                                    <p>{rec.light_intensity}</p>
+                                    <p style={{fontSize: '12px'}}>{rec.light_intensity}</p>
                                 </div>
                                 {/* Date/Time */}
                                 <div>
-                                    <Typography sx={{ fontWeight: 'bold', typography: { sm: 'body4' } }}>
+                                    <Typography sx={{ fontWeight: 'bold' }} style={{fontSize: '12px'}}>
                                         Date/Time:
                                     </Typography>
-                                    <p>{rec.formatted_date}</p>
+                                    <p style={{fontSize: '12px'}}>{rec.formatted_date}</p>
                                 </div>
                             </Stack>
                         </CardContent>
