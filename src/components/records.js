@@ -157,32 +157,43 @@ function Records(props) {
                                 direction="row"
                                 justifyContent="space-evenly"
                                 alignItems="center"
-                                spacing={3}
+                                spacing={1}
                             >
-                                {/* ID */}
-                                <Typography sx={{ typography: { xl: 'h5', sm: 'body1', xs: 'body2' } }}>
-                                    ID: {rec.id}
-                                </Typography>
                                 {/* Temperature */}
-                                <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
-                                    Temperature: {rec.temp}°C
-                                </Typography>
+                                <div>
+                                    <Typography sx={{ fontWeight: 'bold', typography: { sm: 'body4' } }}>
+                                        Temperature:
+                                    </Typography>
+                                    <p>{rec.temp}°C</p>
+                                </div>
                                 {/* Humidity */}
-                                <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
-                                    Humidity: {rec.humidity}%
-                                </Typography>
+                                <div>
+                                    <Typography sx={{ fontWeight: 'bold', typography: { sm: 'body4' } }}>
+                                        Humidity:
+                                    </Typography>
+                                    <p>{rec.humidity}%</p>
+                                </div>
                                 {/* Soil Moisture */}
-                                <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
-                                    Soil Moisture: {rec.soil_moisture}%
-                                </Typography>
+                                <div>
+                                    <Typography sx={{ fontWeight: 'bold', typography: { sm: 'body4' } }}>
+                                        Soil Moisture:
+                                    </Typography>
+                                    <p>{rec.soil_moisture}%</p>
+                                </div>
                                 {/* Light Intensity */}
-                                <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
-                                    Light Intensity: {rec.light_intensity}
-                                </Typography>
+                                <div>
+                                    <Typography sx={{ fontWeight: 'bold', typography: { sm: 'body4' } }}>
+                                        Light Intensity:
+                                    </Typography>
+                                    <p>{rec.light_intensity}</p>
+                                </div>
                                 {/* Date/Time */}
-                                <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
-                                    Date/Time: {rec.formatted_date}
-                                </Typography>
+                                <div>
+                                    <Typography sx={{ fontWeight: 'bold', typography: { sm: 'body4' } }}>
+                                        Date/Time:
+                                    </Typography>
+                                    <p>{rec.formatted_date}</p>
+                                </div>
                             </Stack>
                         </CardContent>
                     </Card>
