@@ -159,6 +159,7 @@ function Records(props) {
                                 alignItems="center"
                                 spacing={1}
                             >
+
                                 {/* Temperature */}
                                 <div>
                                     <Typography sx={{ fontWeight: 'bold'}} style={{fontSize: '12px'}}>
