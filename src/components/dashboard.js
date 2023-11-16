@@ -197,6 +197,7 @@ const Dashboard = () => {
                       <RenderLineChart
                         data={weekTemp}
                       />
+                      <p>Date: Day/Month</p>
                    </CardContent>
                 </Card>
               </Grid>
@@ -210,10 +211,11 @@ const Dashboard = () => {
               >
                <Card sx={{height: '100%'}}>
                     <CardContent sx={{ padding: 0 }}>
-                      <h2>Humidity</h2>
+                      <h2>Humidity %</h2>
                       <RenderLineChart
                         data={weekHum}
                       />
+                      <p>Date: Day/Month</p>
                    </CardContent>
                 </Card>
               </Grid>
@@ -227,10 +229,11 @@ const Dashboard = () => {
               >
                 <Card sx={{height: '100%'}}>
                     <CardContent sx={{ padding: 0 }}>
-                      <h2>Soil Moisture</h2>
+                      <h2>Soil Moisture %</h2>
                       <RenderLineChart
                         data={weekSoil}
                       />
+                      <p>Date: Day/Month</p>
                    </CardContent>
                 </Card>
               </Grid>
@@ -244,10 +247,12 @@ const Dashboard = () => {
               >
                 <Card sx={{height: '100%'}}>
                     <CardContent sx={{ padding: 0 }}>
-                      <h2>Light Intensity</h2>
+                      <h2>Light Intensity (Lumen)</h2>
                       <RenderLineChart
                         data={weekLight}
+
                       />
+                      <p>Date: Day/Month</p>
                    </CardContent>
                 </Card>
               </Grid>
