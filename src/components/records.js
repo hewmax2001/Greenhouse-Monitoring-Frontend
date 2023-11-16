@@ -60,6 +60,7 @@ function Records(props) {
         {/* Form data containing the date to request from */}
         const FormData2 = require('form-data');
         let data = new FormData();
+        console.log(date)
         data.append('date', date);
         let config = {
             method: 'post',
@@ -149,7 +150,7 @@ function Records(props) {
                 spacing={1}
             >
                 {/* For each sensor data record */}
-                {records.map(rec =>
+                {records.reverse().map(rec =>
                     <Card sx={{height: '100%', width: '100%'}} variant="outlined" key={rec.id}>
                         <CardContent>
                             <Stack
@@ -159,27 +160,27 @@ function Records(props) {
                                 spacing={3}
                             >
                                 {/* ID */}
-                                <Typography variant="h5">
+                                <Typography sx={{ typography: { xl: 'h5', sm: 'body1', xs: 'body2' } }}>
                                     ID: {rec.id}
                                 </Typography>
                                 {/* Temperature */}
-                                <Typography>
+                                <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
                                     Temperature: {rec.temp}°C
                                 </Typography>
                                 {/* Humidity */}
-                                <Typography>
+                                <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
                                     Humidity: {rec.humidity}%
                                 </Typography>
                                 {/* Soil Moisture */}
-                                <Typography>
+                                <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
                                     Soil Moisture: {rec.soil_moisture}%
                                 </Typography>
                                 {/* Light Intensity */}
-                                <Typography>
+                                <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
                                     Light Intensity: {rec.light_intensity}
                                 </Typography>
                                 {/* Date/Time */}
-                                <Typography>
+                                <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
                                     Date/Time: {rec.formatted_date}
                                 </Typography>
                             </Stack>
