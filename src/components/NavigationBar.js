@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {Link} from "react-router-dom";
-const now = new Date().toISOString();
+const now = new Date(new Date().toLocaleString('en', {timeZone: 'Pacific/Auckland'})).toISOString();
 
 // Navigation NavigationBar component
 function NavigationBar(props) {

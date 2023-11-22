@@ -28,17 +28,9 @@ function Records(props) {
     const [nextDateStr, setNext] = useState("")
 
     {/* Today as a date object*/}
-    const today = new Date();
+    const today = new Date(new Date().toLocaleString('en', {timeZone: 'Pacific/Auckland'}));
     {/* The date of the page's state as a date object*/}
     const dateObj = new Date(date)
-
-    {/* The date objects before and after dateObj */}
-    const datePrev = new Date()
-    const dateNext = new Date()
-
-    {/* Setting prev and next date accordingly */}
-    datePrev.setDate(dateObj.getDate() - 1)
-    dateNext.setDate(dateObj.getDate() + 1)
 
     {/* Requesting data of all sensor data record corresponding with state's date */}
     useEffect(() => {
@@ -47,11 +39,11 @@ function Records(props) {
         setPrev(getPreviousDay(dateObj).toISOString().slice(0, 10))
         setNext(getNextDay(dateObj).toISOString().slice(0, 10))
 
-        let dateStr = dateObj.toISOString().slice(0, 10)
-        let todayStr = today.toISOString().slice(0, 10)
+        /*let dateStr = dateObj.toISOString().slice(0, 10)
+        let todayStr = today.toLocaleString('en', {timeZone: 'Pacific/Auckland'})*/
 
         {/* Checking and setting today boolean */}
-        if (dateStr == todayStr) {
+        if (dateObj.getTime() >= today.getTime()) {
             setIsToday(true)
         } else {
             setIsToday(false)
@@ -60,7 +52,7 @@ function Records(props) {
         {/* Form data containing the date to request from */}
         const FormData2 = require('form-data');
         let data = new FormData();
-        console.log(date)
+        console.log("From the start: " + date + " Current Date: " + nextDateStr)
         data.append('date', date);
         let config = {
             method: 'post',
@@ -96,7 +88,8 @@ function Records(props) {
 
     {/* Navigate to records page with different date in state */}
     function changeDate(chgDate) {
-        navigate('/records', {state: {date: chgDate.toISOString().slice(0, 10)}})
+        console.log("Changing: " + date)
+        navigate('/records', {state: {date: chgDate}})
     }
 
     return (
@@ -118,9 +111,19 @@ function Records(props) {
                 spacing={1}
             >
                 {/* Previous Date Button */}
-                <Link to={"/records"} state={{date: prevDateStr}}>
-                    <Button variant="contained" onClick={(key) => changeDate(datePrev)}>Prev</Button>
-                </Link>
+
+                    <Button variant="contained" onClick={(key) => changeDate(prevDateStr)}
+                            sx={{width: '100%',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                gap: '0px',}}
+                    >
+                        Prev
+                        <p style={{fontSize: '8px', margin: 0}}>{prevDateStr}</p>
+                    </Button>
+
 
                 {/* Date Picker */}
                 <DatePicker
@@ -133,12 +136,30 @@ function Records(props) {
                 {/* Next Date Button */}
                 {
                     // If today, disable Next Date Button
-                    isToday ? <Button variant="contained" disabled>Next</Button>
+                    isToday ? <Button variant="contained" disabled
+                                      sx={{width: '100%',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        gap: '0px',}}
+                        >
+                            Next
+                            <p style={{fontSize: '8px', margin: 0}}>{nextDateStr}</p>
+                    </Button>
                         :
                         // Else
-                        <Link to={"/records"} state={{date: nextDateStr}}>
-                            <Button variant="contained" onClick={(key) => changeDate(dateNext)}>Next</Button>
-                        </Link>
+                            <Button variant="contained" onClick={(key) => changeDate(nextDateStr)}
+                                    sx={{width: '100%',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        gap: '0px',}}
+                            >
+                                Next
+                                <p style={{fontSize: '8px', margin: 0}}>{nextDateStr}</p>
+                            </Button>
                 }
             </Stack>
 
